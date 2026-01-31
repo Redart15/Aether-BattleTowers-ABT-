@@ -1,4 +1,7 @@
 import com.smushytaco.lwjgl_gradle.Preset
+import java.net.URL
+
+
 plugins {
 	alias(libs.plugins.loom)
 	alias(libs.plugins.lwjgl)
@@ -9,6 +12,64 @@ val modGroup: Provider<String> = providers.gradleProperty("mod_group")
 val modName: Provider<String> = providers.gradleProperty("mod_name")
 
 val javaVersion: Provider<Int> = libs.versions.java.map { it.toInt() }
+
+//val battleTowersVersion = libs.versions.battletowers.get()
+//val battleTowersReleaseTag = libs.versions.battletowersReleaseTag.get()
+//
+//val betterBattleJar = layout.buildDirectory.file("libs/betterbattletowers-$battleTowersVersion.jar")
+//val betterBattleUrl =
+//	"https://github.com/mayonaka8478/Better-than-Battle-Towers/releases/download/$battleTowersReleaseTag/betterbattletowers-$battleTowersVersion.jar"
+//
+//// 1️⃣ Download task
+//val downloadBetterBattleJar = tasks.register("downloadBetterBattleJar") {
+//	outputs.file(betterBattleJar)
+//	doLast {
+//		val file = betterBattleJar.get().asFile
+//		file.parentFile.mkdirs()
+//		if (!file.exists()) {
+//			println("⬇️ Downloading Better Battle Towers $battleTowersVersion")
+//			URL(betterBattleUrl).openStream().use { input ->
+//				file.outputStream().use { output ->
+//					input.copyTo(output)
+//				}
+//			}
+//		} else {
+//			println("✅ Better Battle Towers already downloaded")
+//		}
+//	}
+//}
+//
+////// 2️⃣ Add as compile-time dependency
+////dependencies {
+////	implementation(files(betterBattleJar))
+////}
+//
+//// 3️⃣ Copy to run/mods
+//val copyBetterBattleJar = tasks.register("copyBetterBattleJar") {
+//	dependsOn(downloadBetterBattleJar)
+//	doLast {
+//		val modsDir = file("run/mods")
+//		modsDir.mkdirs()
+//		val sourceFile = betterBattleJar.get().asFile
+//		if (!sourceFile.exists()) {
+//			throw GradleException("Better Battle Towers JAR not found! Download failed?")
+//		}
+//		sourceFile.copyTo(File(modsDir, sourceFile.name), overwrite = true)
+//		println("📦 Copied Better Battle Towers JAR to $modsDir")
+//	}
+//}
+//
+//// 4️⃣ Ensure compileJava waits for copy
+//tasks.withType<JavaCompile>().configureEach {
+//	dependsOn(copyBetterBattleJar)
+//}
+//
+//// 5️⃣ Ensure runClient waits for copy
+//tasks.named("runClient") {
+//	dependsOn(copyBetterBattleJar)
+//}
+
+
 
 base.archivesName = modName
 group = modGroup.get()
@@ -38,6 +99,28 @@ repositories {
         patternLayout { artifact("v1/[organisation]/[revision]/[module].jar") }
         metadataSources { artifact() }
     }
+	ivy("https://github.com/") {
+		patternLayout { artifact("v1/[organisation]/[revision]/[module].jar") }
+		metadataSources { artifact() }
+	}
+	ivy ("https://github.com/"){
+		patternLayout {
+			artifact("[organization]/[module]/releases/download/[revision]/[module]-[revision].jar")
+		}
+		metadataSources { artifact() }
+	}
+	ivy("https://github.com/") {
+		patternLayout {
+			artifact("[organization]/[module]/releases/download/[revision]/[module]-[revision]+7.3_04.jar")
+		}
+		metadataSources { artifact() }
+	}
+	ivy("https://github.com/mayonaka8478/Better-than-Battle-Towers/") {
+		patternLayout {
+			artifact("releases/download/[organization]/[module]-[revision].jar")
+		}
+		metadataSources { artifact() }
+	}
 }
 lwjgl {
 	version = libs.versions.lwjgl
@@ -45,6 +128,15 @@ lwjgl {
 }
 dependencies {
     minecraft("::${libs.versions.bta.get()}")
+
+	implementation(libs.aether)
+	implementation(libs.battletowers)
+
+	compileOnly(libs.btwaila)
+	implementation(libs.dragonfly)
+	implementation(libs.catalyst.core)
+	implementation(libs.catalyst.effects)
+	implementation(libs.uselessNumerical.get().let { "${it.group}:${it.name}:${it.version}-${libs.versions.bta.get()}" })
 
 	runtimeOnly(libs.clientJar)
 	implementation(libs.loader)
@@ -118,7 +210,9 @@ tasks {
 			"fabricloader" to libs.versions.loader.get(),
 			"halplibe" to libs.versions.halplibe.get(),
 			"java" to libs.versions.java.get(),
-			"modmenu" to libs.versions.modMenu.get()
+			"modmenu" to libs.versions.modMenu.get(),
+			"aether" to libs.versions.aether.get(),
+			"battletowers" to libs.versions.battletowers.get()
 		)
 		inputs.properties(resourceMap)
 		filesMatching("fabric.mod.json") { expand(resourceMap) }

@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "aether_battletowers",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Aether BatttleTowers",
+	"description": "This is a compat mod for battle towers and aether",
 	"authors": [
-		"Turnip Labs"
+		"Redart15"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,26 +16,32 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"redart15.aether_battle.AetherBattleMod"
 		],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"redart15.aether_battle.AetherBattleMod"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"redart15.aether_battle.AetherBattleMod"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"redart15.aether_battle.recipe.AetherBattleRecipes"
+		],
+		"initModels": [
+			"redart15.aether_battle.model.AetherBattleModels"
 		]
+
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"redart15.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
 		"halplibe": ">=${halplibe}",
 		"minecraft": "*",
-		"java": ">=${java}"
+		"java": ">=${java}",
+		"aether": ">=${aether}",
+		"betterbattletowers": ">=${battletowers}"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu}"
