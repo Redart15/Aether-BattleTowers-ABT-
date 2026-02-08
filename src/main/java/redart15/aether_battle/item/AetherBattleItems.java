@@ -19,13 +19,12 @@ public class AetherBattleItems {
 	public static String itemKey(String string) {
 		return "aether:item/" + string;
 	}
-	public static int itemID(String itemName) {return AetherBattleConfig.currentItemID++;}
 
 	public static void init(){
 		if(init) return;
 		init = true;
 		DICINATOR = new ItemBuilder(MOD_ID)
 			.addTags(ItemTags.PREVENT_CREATIVE_MINING, ItemTags.PREVENT_LEFT_CLICK_INTERACTIONS)
-			.build(new ItemChaoticWand("dice.weapon", itemKey("dice_weapon"), AetherBattleConfig.nextItemID(), ToolMaterial.diamond));
+			.build(new ItemChaoticWand("chaotic.weapon", itemKey("chaotic_weapon"), AetherBattleConfig.nextItemID(), ToolMaterial.diamond));
 	}
 }
