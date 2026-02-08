@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "aether_battletowers",
+	"id": "aether_battle",
 	"version": "${version}",
 	"name": "Aether BatttleTowers",
 	"description": "This is a compat mod for battle towers and aether",
@@ -25,12 +25,20 @@
 			"redart15.aether_battle.AetherBattleMod"
 		],
 		"recipesReady": [
-			"redart15.aether_battle.recipe.AetherBattleRecipes"
+			"redart15.aether_battle.AetherBattleRecipes"
 		],
 		"initModels": [
 			"redart15.aether_battle.model.AetherBattleModels"
+		],
+		"client": [
+			"redart15.aether_battle.AetherBatlleClient"
+		],
+		"beforeClientStart": [
+			"redart15.aether_battle.AetherBatlleClient"
+		],
+		"afterClientStart": [
+			"redart15.aether_battle.AetherBatlleClient"
 		]
-
 	},
 	"mixins": [
 		"redart15.mixins.json"
@@ -41,7 +49,7 @@
 		"minecraft": "*",
 		"java": ">=${java}",
 		"aether": ">=${aether}",
-		"betterbattletowers": ">=${battletowers}"
+		"betterbattletowers": "4.1a"
 	},
 	"suggests": {
 		"modmenu": ">=${modmenu}"
