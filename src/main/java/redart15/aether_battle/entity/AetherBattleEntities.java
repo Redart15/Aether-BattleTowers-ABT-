@@ -1,8 +1,7 @@
 package redart15.aether_battle.entity;
 
 import net.minecraft.core.util.collection.NamespaceID;
-import redart15.aether_battle.entity.projectile.ProjectileChaoticWand;
-import teamport.aether.entity.projectile.ProjectileDart;
+import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import turniplabs.halplibe.helper.EntityHelper;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
@@ -19,6 +18,6 @@ public class AetherBattleEntities {
 	}
 
 	public static void initProjectile() {
-		EntityHelper.createEntity(ProjectileChaoticWand.class, NamespaceID.getPermanent(MOD_ID, "chaotic_wand"), null);
+		EntityHelper.createEntity(ProjectileChaotic.class, NamespaceID.getPermanent(MOD_ID, ":chaotic_wand"), null);
 	}
 }
