@@ -6,7 +6,9 @@ import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
+import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import redart15.aether_battle.item.AetherBattleItems;
+import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
 
 public class AetherBattleModels implements ModelEntrypoint {
@@ -17,13 +19,13 @@ public class AetherBattleModels implements ModelEntrypoint {
 
 	@Override
 	public void initItemModels(ItemModelDispatcher itemModelDispatcher) {
-		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.DICINATOR, (String) null).setIcon("aether:item/amber"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.DICINATOR, (String) null).setIcon("minecraft:item/wand_monster").setFull3D());
 
 	}
 
 	@Override
 	public void initEntityModels(EntityRenderDispatcher entityRenderDispatcher) {
-
+		ModelHelper.setEntityModel(ProjectileChaotic.class, EntityRendererChaoticWandDart::new);
 	}
 
 	@Override
