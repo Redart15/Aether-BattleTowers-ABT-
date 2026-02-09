@@ -25,6 +25,6 @@ public class AetherBattleItems {
 		init = true;
 		DICINATOR = new ItemBuilder(MOD_ID)
 			.addTags(ItemTags.PREVENT_CREATIVE_MINING, ItemTags.PREVENT_LEFT_CLICK_INTERACTIONS)
-			.build(new ItemChaoticWand("chaotic.weapon", itemKey("chaotic_weapon"), AetherBattleConfig.nextItemID(), ToolMaterial.diamond));
+			.build(new ItemChaoticWand("chaotic.wand", itemKey("chaotic_wand"), AetherBattleConfig.nextItemID(), ToolMaterial.diamond));
 	}
 }
