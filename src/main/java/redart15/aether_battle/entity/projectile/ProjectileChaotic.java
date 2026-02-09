@@ -4,6 +4,7 @@ import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.core.Global;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.Mob;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.entity.projectile.Projectile;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.helper.MathHelper;
@@ -18,7 +19,7 @@ import teamport.aether.entity.MobUtil;
 import teamport.aether.helper.ParticleMaker;
 
 public class ProjectileChaotic extends Projectile {
-	public static final int SAMPLES = 12;
+	public int samples;
 	protected DamageInstance[] damageInstances;
 
 	public ProjectileChaotic(World world) {
@@ -34,8 +35,14 @@ public class ProjectileChaotic extends Projectile {
 	}
 
 	@Override
+	public void setHeading(double newMotionX, double newMotionY, double newMotionZ, float speed, float randomness) {
+		super.setHeading(newMotionX, newMotionY, newMotionZ, speed * 2.0f, randomness);
+	}
+
+	@Override
 	protected void initProjectile() {
 		this.defaultProjectileSpeed = 1.0F;
+		this.samples = (int)Math.ceil(12 * this.defaultProjectileSpeed);
 	}
 
 	@Override
@@ -44,15 +51,15 @@ public class ProjectileChaotic extends Projectile {
 		if(this.tickCount > 1) {
 			this.spawnBeamParticles();
 		}
-		if(this.tickCount >= 3 * Global.TICKS_PER_SECOND){
+		if(this.tickCount >= Global.TICKS_PER_SECOND){
 			this.doEffect();
 			this.remove();
 		}
 	}
 
 	private void spawnBeamParticles() {
-		for (int i = 0; i < SAMPLES; i++) {
-			float progress = (float) i / SAMPLES;
+		for (int i = 0; i < samples; i++) {
+			float progress = (float) i / samples;
 			ParticleMaker.spawnParticle(world, "chaotic",
 				MathHelper.lerp(this.x, this.x - this.xd, progress),
 				MathHelper.lerp(this.y, this.y - this.yd, progress),
@@ -144,6 +151,6 @@ public class ProjectileChaotic extends Projectile {
 	public HitResult getHitResult() {
 		Vec3 oldPosition = Vec3.getTempVec3(this.x, this.y, this.z);
 		Vec3 newPosition = Vec3.getTempVec3(this.x + this.xd, this.y + this.yd, this.z + this.zd);
-		return this.world.checkBlockCollisionBetweenPoints(oldPosition, newPosition, false, true, false);
+		return this.world.checkBlockCollisionBetweenPoints(oldPosition, newPosition, false, false, false);
 	}
 }
