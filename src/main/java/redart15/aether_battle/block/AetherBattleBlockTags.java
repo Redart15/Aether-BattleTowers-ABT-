@@ -8,20 +8,19 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.tag.ItemTags;
 import redart15.aether_battle.AetherBattleMod;
 import teamport.aether.block.AetherBlocks;
-import teamport.aether.item.AetherItemTags;
 
 import java.lang.reflect.Field;
 
-public class AetherBattleTags {
+public class AetherBattleBlockTags {
 	public static final Tag<Block<?>> BRIDLE = Tag.of("bridle");
 
 	private static boolean init = false;
-	private AetherBattleTags(){}
+	private AetherBattleBlockTags(){}
 	public static void init(){
 		if(init) return;
 		init = true;
-		AetherBattleTags.initTags();
-		AetherBattleTags.chaoticWandBridle();
+		AetherBattleBlockTags.initTags();
+		AetherBattleBlockTags.chaoticWandBridle();
 	}
 
 	private static void chaoticWandBridle() {
@@ -118,7 +117,7 @@ public class AetherBattleTags {
 
 
 	private static void initTags(){
-		for(Field field : AetherItemTags.class.getDeclaredFields()) {
+		for(Field field : AetherBattleBlockTags.class.getDeclaredFields()) {
 			if (field.getType().equals(Tag.class)) {
 				try {
 					Tag<Item> tag = (Tag)field.get(null);
