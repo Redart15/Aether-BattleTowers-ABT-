@@ -4,7 +4,6 @@ import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.core.Global;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.Mob;
-import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.entity.projectile.Projectile;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.helper.MathHelper;
@@ -13,7 +12,7 @@ import net.minecraft.core.util.phys.Vec3;
 import net.minecraft.core.world.LevelListener;
 import net.minecraft.core.world.World;
 import org.jetbrains.annotations.NotNull;
-import redart15.aether_battle.block.AetherBattleTags;
+import redart15.aether_battle.block.AetherBattleBlockTags;
 import teamport.aether.entity.DamageInstance;
 import teamport.aether.entity.MobUtil;
 import teamport.aether.helper.ParticleMaker;
@@ -104,7 +103,7 @@ public class ProjectileChaotic extends Projectile {
 			}
 		} else {
 			Block<?> block = this.world.getBlock(hitResult.x, hitResult.y, hitResult.z);
-			if (block != null && block.hasTag(AetherBattleTags.BRIDLE)) {
+			if (block != null && block.hasTag(AetherBattleBlockTags.BRIDLE)) {
 				world.setBlockWithNotify(hitResult.x, hitResult.y, hitResult.z, 0);
 				world.playBlockEvent(LevelListener.EVENT_BLOCK_BREAK, hitResult.x, hitResult.y, hitResult.z, block.id());
 			} else {
