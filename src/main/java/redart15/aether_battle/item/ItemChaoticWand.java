@@ -11,7 +11,7 @@ import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.world.LevelListener;
 import net.minecraft.core.world.World;
-import redart15.aether_battle.block.AetherBattleTags;
+import redart15.aether_battle.block.AetherBattleBlockTags;
 import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import teamport.aether.entity.DamageInstance;
 
@@ -30,7 +30,7 @@ public class ItemChaoticWand extends Item {
 	}
 
 	public float getStrVsBlock(ItemStack itemstack, Block<?> block) {
-		return block.hasTag(AetherBattleTags.BRIDLE) ? 100.0F : 1.5F;
+		return block.hasTag(AetherBattleBlockTags.BRIDLE) ? 100.0F : 1.5F;
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class ItemChaoticWand extends Item {
 		blockY += direction.getOffsetY();
 		blockZ += direction.getOffsetZ();
 		Block<?> block = world.getBlock(blockX, blockY, blockZ);
-		if (block != null && block.hasTag(AetherBattleTags.BRIDLE)) {
+		if (block != null && block.hasTag(AetherBattleBlockTags.BRIDLE)) {
 			world.setBlockWithNotify(blockX, blockY, blockZ, 0);
 			world.playBlockEvent(null, LevelListener.EVENT_BLOCK_BREAK, blockX, blockY, blockZ, block.id());
 		}
