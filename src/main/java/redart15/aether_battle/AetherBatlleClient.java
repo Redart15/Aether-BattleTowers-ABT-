@@ -4,6 +4,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.render.texture.stitcher.AtlasStitcher;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
+import redart15.aether_battle.entity.particle.ParticleBleeding;
 import redart15.aether_battle.entity.particle.ParticleChaotic;
 import teamport.aether.AetherMod;
 import turniplabs.halplibe.helper.TextureHelper;
@@ -21,6 +22,7 @@ public class AetherBatlleClient implements ClientModInitializer, ClientStartEntr
 	public void beforeClientStart() {
 		ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
 		dispatcher.addDispatch("chaotic", (world, x, y, z, xa, ya, za, id) -> new ParticleChaotic(world, x, y, z, xa, ya, za));
+		dispatcher.addDispatch("bleeding", (world, x, y, z, xa, ya, za, id) -> new ParticleBleeding(world, x, y, z, xa, ya, za));
 	}
 
 	@Override
