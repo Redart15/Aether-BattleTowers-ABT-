@@ -17,6 +17,7 @@ import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 public class AetherBattleEffects {
 	private static boolean hasInit = false;
 	public static Effect blood_letting;
+	public static Effect bleeding;
 
 
 	private AetherBattleEffects() {
@@ -39,25 +40,41 @@ public class AetherBattleEffects {
 			MOD_ID + ":blood_letting",
 			new ArrayList<>(),
 			EffectTimeType.RESET, 2
-		).setDefaultDuration(ItemCrimsonGem.COOLDOWN);
+		).setDefaultDuration(ItemCrimsonGem.COOLDOWN / 2);
+
+		bleeding = new BleedingEffect(
+			"effect." + MOD_ID + ".bleeding",
+			MOD_ID + ":bleeding",
+			new ArrayList<>(),
+			EffectTimeType.ADD, 1
+		)
+			.setDefaultDuration(ItemCrimsonGem.COOLDOWN)
+			.setDurationIncrease(ItemCrimsonGem.COOLDOWN);
 	}
 
 	private static void registerEffects() {
 		Effects effects = Effects.getInstance();
 		effects.register(blood_letting.id, blood_letting);
+		effects.register(bleeding.id, bleeding);
 	}
 
 	private static void assignEffectRenderers() {
 		EffectRendererDispatcher dispatcher = EffectRendererDispatcher.getInstance();
 		dispatcher.addDispatch(blood_letting, new EffectRenderer<>(blood_letting).setIcon("bleeding.png"));
+		dispatcher.addDispatch(bleeding, new EffectRenderer<>(bleeding).setIcon("bleeding.png"));
 	}
 
+	public static void quickStartEffect(IHasEffects<?> victom, Effect effect, int stackSize) {
+		EffectStack stack = new EffectStack(victom, effect, stackSize);
+		stack.start(victom.getContainer());
+		AetherBattleEffects.add(victom.getContainer(), stack);
+	}
 
-	public static void add(EffectContainer<?> container, EffectStack currentEffect){
+	public static void add(EffectContainer<?> container, EffectStack currentEffect) {
 		if (!currentEffect.getEffect().canApplyTo((Entity) container.getParent())) return;
 		List<EffectStack> effects = container.getEffects();
 		for (EffectStack effectStack : effects) {
-			if(effectStack.getEffect() == currentEffect.getEffect()){
+			if (effectStack.getEffect() == currentEffect.getEffect()) {
 				int amount = Math.min(currentEffect.getAmount(), effectStack.getEffect().getMaxStack() - effectStack.getAmount());
 				add(effectStack, amount, container);
 				syncEffectContainer(container);
@@ -68,8 +85,8 @@ public class AetherBattleEffects {
 	}
 
 
-	public static void add(EffectStack stack, int amount,  EffectContainer<?> effectContainer) {
-		if(amount > 0){
+	public static void add(EffectStack stack, int amount, EffectContainer<?> effectContainer) {
+		if (amount > 0) {
 			stack.add(amount, effectContainer);
 		}
 	}
