@@ -98,7 +98,6 @@ public class ProjectileChaotic extends Projectile {
 	public void onHit(HitResult hitResult) {
 		if (hitResult.entity != null) {
 			MobUtil.multiHit(this.owner, hitResult.entity, this.damageInstances);
-			world.playSoundAtEntity(null, hitResult.entity, "fireworks.twinkle1", this.random.nextFloat() * 0.4F + 0.2F, this.random.nextFloat() * 0.8f + 0.2F);
 			if(this.damageInstances.length > 1){
 			}
 		} else {

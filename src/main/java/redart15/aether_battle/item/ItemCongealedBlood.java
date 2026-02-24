@@ -6,6 +6,7 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.player.inventory.container.ContainerInventory;
 import redart15.aether_battle.TriggerOnPickup;
+import teamport.aether.mixin.accessors.EntityAccessor;
 
 public class ItemCongealedBlood extends Item implements TriggerOnPickup {
 
@@ -19,6 +20,7 @@ public class ItemCongealedBlood extends Item implements TriggerOnPickup {
 			return;
 		}
 		player.heal(itemStack.stackSize);
+		player.world.playSoundAtEntity(player, player, "aether_battle:bloodstone.pickup", 0.2F + ((EntityAccessor)player).getRandom().nextFloat() * 0.2f, 0.2F + ((EntityAccessor)player).getRandom().nextFloat() * 1.0f);
 		entityItem.remove();
 	}
 }
