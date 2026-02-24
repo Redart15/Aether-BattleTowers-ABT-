@@ -6,10 +6,7 @@ import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.Global;
-import net.minecraft.core.entity.player.Player;
-import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.world.World;
-import org.lwjgl.opengl.GL11;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 
@@ -17,6 +14,7 @@ public class ParticleBleeding extends Particle {
 	public static final String SPLAT_PATH = MOD_ID + ":particle/bleeding/blood_splat_";
 	protected final float originalScale;
 	protected IconCoordinate splat;
+	private double adjust;
 
 	public ParticleBleeding(World world, double x, double y, double z, double xa, double ya, double za) {
 		super(world, x, y, z, xa, ya, za);
@@ -31,12 +29,13 @@ public class ParticleBleeding extends Particle {
 		this.originalScale = this.size;
 		this.gravity = 0.2f;
 		this.lifetime = 20 * Global.TICKS_PER_SECOND;
+		this.adjust = 0.01 * this.random.nextFloat();
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
-		if(this.onGround){
+		if (this.onGround) {
 			this.xd = this.yd = this.zd = 0;
 		}
 	}
@@ -51,7 +50,7 @@ public class ParticleBleeding extends Particle {
 		if (this.tex == null) {
 			return;
 		}
-		if(this.isInWater() || this.isInLava()){
+		if (this.isInWater() || this.isInLava()) {
 			this.remove();
 		}
 		if (this.onGround) {
@@ -64,14 +63,14 @@ public class ParticleBleeding extends Particle {
 	private void renderBloodSplat(Tessellator t, float partialTick, double xOff, double yOff, double zOff, float xa, float ya, float za, float xa2, float za2) {
 		float s = (this.age + partialTick) / this.lifetime;
 		this.size = this.originalScale * (0.6F + s * s * 0.4f);
-		float minU = (float)this.splat.getIconUMin();
-		float maxU = (float)this.splat.getIconUMax();
-		float minV = (float)this.splat.getIconVMin();
-		float maxV = (float)this.splat.getIconVMax();
+		float minU = (float) this.splat.getIconUMin();
+		float maxU = (float) this.splat.getIconUMax();
+		float minV = (float) this.splat.getIconVMin();
+		float maxV = (float) this.splat.getIconVMax();
 		float r = 0.1F * this.size;
-		float x = (float)(this.xo + (this.x - this.xo) * partialTick - xOff);
-		float y = (float)(this.yo + (this.y - this.yo) * partialTick - yOff);
-		float z = (float)(this.zo + (this.z - this.zo) * partialTick - zOff);
+		float x = (float) (this.xo + (this.x - this.xo) * partialTick - xOff);
+		float y = (float) (this.yo + (this.y - this.yo) * partialTick - yOff);
+		float z = (float) (this.zo + (this.z - this.zo) * partialTick - zOff);
 		float br = 1.0F;
 		if (LightmapHelper.isLightmapEnabled()) {
 			t.setLightmapCoord(this.getLightmapCoord(partialTick));
@@ -79,10 +78,16 @@ public class ParticleBleeding extends Particle {
 			br = this.getBrightness(partialTick);
 		}
 		t.setColorOpaque_F(this.rCol * br, this.gCol * br, this.bCol * br);
-		t.addVertexWithUV(x - r, y - 0.05, z - r, maxU, maxV);
-		t.addVertexWithUV(x - r, y - 0.05, z + r, maxU, minV);
-		t.addVertexWithUV(x + r, y - 0.05, z + r, minU, minV);
-		t.addVertexWithUV(x + r, y - 0.05, z - r, minU, maxV);
+		// top side
+		t.addVertexWithUV(x - r, y - 0.05 + adjust, z - r, maxU, maxV);
+		t.addVertexWithUV(x - r, y - 0.05 + adjust, z + r, maxU, minV);
+		t.addVertexWithUV(x + r, y - 0.05 + adjust, z + r, minU, minV);
+		t.addVertexWithUV(x + r, y - 0.05 + adjust, z - r, minU, maxV);
+		// bottom side
+		t.addVertexWithUV(x - r, y - 0.05 + adjust, z - r, maxU, maxV);
+		t.addVertexWithUV(x + r, y - 0.05 + adjust, z - r, maxU, minV);
+		t.addVertexWithUV(x + r, y - 0.05 + adjust, z + r, minU, minV);
+		t.addVertexWithUV(x - r, y - 0.05 + adjust, z + r, minU, maxV);
 	}
 
 	private void renderBloodDrop(Tessellator t, float partialTick, double xOff, double yOff, double zOff, float xa, float ya, float za, float xa2, float za2) {
@@ -91,12 +96,19 @@ public class ParticleBleeding extends Particle {
 		float v0 = (float) this.tex.getIconVMin();
 		float offset;
 		int stage = this.age / 4 / 2;
-		switch (stage){
-			case 0: offset = 1/4.0f; break;
-			case 1: offset = 2/4.0f; break;
-			case 2: offset = 3/4.0f; break;
+		switch (stage) {
+			case 0:
+				offset = 1 / 4.0f;
+				break;
+			case 1:
+				offset = 2 / 4.0f;
+				break;
+			case 2:
+				offset = 3 / 4.0f;
+				break;
 			case 3:
-			default:offset = 1.0f;
+			default:
+				offset = 1.0f;
 		}
 		float v2 = (float) this.tex.getSubIconV(offset);
 		float r = 0.1F / 2.0F * this.size;
