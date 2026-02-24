@@ -1,2 +1,69 @@
+# Items
 item.aether_battle.chaotic.wand.name=Chaotic Wand
 item.aether_battle.chaotic.wand.desc=Fire a beam of random damage type and strength. May sting a bit.
+item.aether_battle.congealed.blood.name=Congealed Blood
+item.aether_battle.congealed.blood.desc=Freshly culled blood, spicy to the taste, refreshing.
+item.aether_battle.bloodstone.name=Bloodstone
+item.aether_battle.bloodstone.desc=Periodically slashes enemies, causing blood to drop. Collect the blood to restore health.
+
+# Blocks
+# Crumbling Carved Stone
+tile.aether_battle.crumbling.carved.stone.name=Crumbling Sentry Stone
+tile.aether_battle.crumbling.carved.stone.desc=These old tiles wont hold up much longer!
+tile.aether_battle.crumbling.carved.stone.light.name=Crumbling Light Sentry Stone
+tile.aether_battle.crumbling.carved.stone.light.desc=A grooming, crumbling, old sentry stone.
+tile.aether_battle.crumbling.slab.carved.stone.name=Crumbling Sentry Stone Slab
+tile.aether_battle.crumbling.slab.carved.stone.desc=A slab of old sentry stone.
+tile.aether_battle.crumbling.stairs.carved.stone.name=Crumbling Sentry Stone Stairs
+tile.aether_battle.crumbling.stairs.carved.stone.desc=Sentry Stone block used for very careful vertical movement.
+
+tile.aether_battle.bridle.carved.stone.name=Bridle Sentry Stone
+tile.aether_battle.bridle.carved.stone.desc=These old tiles are about to break!
+tile.aether_battle.bridle.carved.stone.light.name=Bridle Light Sentry Stone
+tile.aether_battle.bridle.carved.stone.light.desc=A grooming, crumbling, bridle sentry stone.
+tile.aether_battle.bridle.slab.carved.stone.name=Bridle Sentry Stone Slab
+tile.aether_battle.bridle.slab.carved.stone.desc=A slab of about to break sentry stone!
+tile.aether_battle.bridle.stairs.carved.stone.name=Bridle Sentry Stone Stairs
+tile.aether_battle.bridle.stairs.carved.stone.desc=Sentry Stone block used for very careful and very dangerous vertical movement!
+# Crumbling Angelic Stone
+tile.aether_battle.crumbling.carved.angelic.name=Crumbling Angelic Stone
+tile.aether_battle.crumbling.carved.angelic.desc=These old tiles wont hold up much longer!
+tile.aether_battle.crumbling.carved.angelic.light.name=Crumbling Light Angelic Stone
+tile.aether_battle.crumbling.carved.angelic.light.desc=A grooming, crumbling, old angelic stone.
+tile.aether_battle.crumbling.slab.carved.angelic.name=Crumbling Angelic Stone Slab
+tile.aether_battle.crumbling.slab.carved.angelic.desc=A slab of old angelic stone.
+tile.aether_battle.crumbling.stairs.carved.angelic.name=Crumbling Angelic Stone Stairs
+tile.aether_battle.crumbling.stairs.carved.angelic.desc=Angelic Stone block used for very careful vertical movement.
+
+tile.aether_battle.bridle.carved.angelic.name=Bridle Angelic Stone
+tile.aether_battle.bridle.carved.angelic.desc=These old tiles are about to break!
+tile.aether_battle.bridle.carved.angelic.light.name=Bridle Light Angelic Stone
+tile.aether_battle.bridle.carved.angelic.light.desc=A grooming, crumbling, bridle angelic stone.
+tile.aether_battle.bridle.slab.carved.angelic.name=Bridle Angelic Stone Slab
+tile.aether_battle.bridle.slab.carved.angelic.desc=A slab of about to break angelic stone!
+tile.aether_battle.bridle.stairs.carved.angelic.name=Bridle Angelic Stone Stairs
+tile.aether_battle.bridle.stairs.carved.angelic.desc=Angelic Stone block used for very careful and very dangerous vertical movement!
+
+# Crumbling Hellfire Stone
+tile.aether_battle.bridle.carved.hellfire.name=Crumbling Hellfire Stone
+tile.aether_battle.bridle.carved.hellfire.desc=These old tiles wont hold up much longer!
+tile.aether_battle.bridle.carved.hellfire.light.name=Crumbling Light Hellfire Stone
+tile.aether_battle.bridle.carved.hellfire.light.desc=A grooming, crumbling, old hellfire stone.
+tile.aether_battle.bridle.slab.carved.hellfire.name=Crumbling Hellfire Stone Slab
+tile.aether_battle.bridle.slab.carved.hellfire.desc=A slab of old hellfire stone.
+tile.aether_battle.bridle.stairs.carved.hellfire.name=Crumbling Hellfire Stone Stairs
+tile.aether_battle.bridle.stairs.carved.hellfire.desc=Hellfire Stone block used for very careful vertical movement.
+
+tile.aether_battle.bridle.carved.hellfire.name=Bridle Hellfire Stone
+tile.aether_battle.bridle.carved.hellfire.desc=These old tiles are about to break!
+tile.aether_battle.bridle.carved.hellfire.light.name=Bridle Light Hellfire Stone
+tile.aether_battle.bridle.carved.hellfire.light.desc=A grooming, crumbling, bridle hellfire stone.
+tile.aether_battle.bridle.slab.carved.hellfire.name=Bridle Hellfire Stone Slab
+tile.aether_battle.bridle.slab.carved.hellfire.desc=A slab of about to break hellfire stone!
+tile.aether_battle.bridle.stairs.carved.hellfire.name=Bridle Hellfire Stone Stairs
+tile.aether_battle.bridle.stairs.carved.hellfire.desc=Hellfire Stone block used for very careful and very dangerous vertical movement!
+
+# Subtitle
+subtitles.aether_battle.bloodstone.cutting=Bloodstone slashing enemies.
+subtitles.aether_battle.bloodstone.pickup=Pickup Congealed Blood
+subtitles.aether_battle.wand.laser.shot=Wand shot
