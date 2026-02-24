@@ -31,13 +31,13 @@
 			"redart15.aether_battle.model.AetherBattleModels"
 		],
 		"client": [
-			"redart15.aether_battle.AetherBatlleClient"
+          "redart15.aether_battle.AetherBattleClient"
 		],
 		"beforeClientStart": [
-			"redart15.aether_battle.AetherBatlleClient"
+          "redart15.aether_battle.AetherBattleClient"
 		],
 		"afterClientStart": [
-			"redart15.aether_battle.AetherBatlleClient"
+          "redart15.aether_battle.AetherBattleClient"
 		]
 	},
 	"mixins": [
