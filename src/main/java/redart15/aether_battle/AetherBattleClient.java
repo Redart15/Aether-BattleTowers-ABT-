@@ -4,18 +4,18 @@ import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.render.texture.stitcher.AtlasStitcher;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
+import net.minecraft.client.sound.SoundRepository;
 import redart15.aether_battle.entity.particle.ParticleBleeding;
 import redart15.aether_battle.entity.particle.ParticleChaotic;
-import teamport.aether.AetherMod;
 import turniplabs.halplibe.helper.TextureHelper;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 
-public class AetherBatlleClient implements ClientModInitializer, ClientStartEntrypoint {
+public class AetherBattleClient implements ClientModInitializer, ClientStartEntrypoint {
 	@Override
 	public void onInitializeClient() {
-		AetherBatlleClient.registerTextures();
+		AetherBattleClient.registerTextures();
 	}
 
 	@Override
@@ -23,6 +23,7 @@ public class AetherBatlleClient implements ClientModInitializer, ClientStartEntr
 		ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
 		dispatcher.addDispatch("chaotic", (world, x, y, z, xa, ya, za, id) -> new ParticleChaotic(world, x, y, z, xa, ya, za));
 		dispatcher.addDispatch("bleeding", (world, x, y, z, xa, ya, za, id) -> new ParticleBleeding(world, x, y, z, xa, ya, za));
+		SoundRepository.registerNamespace(AetherBattleMod.MOD_ID);
 	}
 
 	@Override
