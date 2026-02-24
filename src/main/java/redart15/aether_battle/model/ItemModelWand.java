@@ -49,7 +49,6 @@ public class ItemModelWand extends ItemModelStandard {
 
 	@Override
 	public void renderItemInWorld(Tessellator tessellator, Entity entity, ItemStack itemStack, float brightness, float alpha, boolean worldTransform) {
-		GL11.glScalef(1.3F, 1.3F, 1.3F);
 		super.renderItemInWorld(tessellator, entity, itemStack, brightness, alpha, worldTransform);
 		if(overlay != null){
 			this.renderOverlay(tessellator, entity, itemStack, alpha, worldTransform);

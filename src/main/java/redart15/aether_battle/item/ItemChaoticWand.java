@@ -14,6 +14,7 @@ import net.minecraft.core.world.World;
 import redart15.aether_battle.block.AetherBattleBlockTags;
 import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import teamport.aether.entity.DamageInstance;
+import teamport.aether.mixin.accessors.EntityAccessor;
 
 import java.util.List;
 import java.util.Random;
@@ -38,6 +39,7 @@ public class ItemChaoticWand extends Item {
 		if (player.attackTime <= 0) {
 			player.attackTime = 20;
 			player.swingItem();
+			player.world.playSoundAtEntity(player, player, "aether_battle:wand.laser.shot", 0.4F + ((EntityAccessor)player).getRandom().nextFloat() * 0.2f, 0.9F + ((EntityAccessor)player).getRandom().nextFloat() * 0.9f);
 			return this.shootBeam(itemstack, world, player);
 		}
 		return itemstack;
@@ -68,7 +70,7 @@ public class ItemChaoticWand extends Item {
 		DamageInstance[] instances = new DamageInstance[count];
 		List<DamageType> damageTypes = DamageType.values();
 		for (int c = 0; c < count; c++) {
-			instances[c] = inst((int)Math.ceil(rolls[c] / 2.0F), damageTypes.get(random.nextInt(damageTypes.size())));
+			instances[c] = inst(rolls[c], damageTypes.get(random.nextInt(damageTypes.size())));
 		}
 		return instances;
 	}
