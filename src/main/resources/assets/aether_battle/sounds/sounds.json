@@ -2,13 +2,13 @@
   "bloodstone.cutting": {
     "subtitle": "subtitles.aether_battle.bloodstone.cutting",
     "sounds": [
-      "bloodstone.cutting1.ogg"
+      "bloodstone.cutting.ogg"
     ]
   },
   "bloodstone.pickup": {
     "subtitle": "subtitles.aether_battle.bloodstone.pickup",
     "sounds": [
-      "bloodstone.pickup1.ogg"
+      "bloodstone.pickup.ogg"
     ]
   },
   "wand.laser.shot": {
