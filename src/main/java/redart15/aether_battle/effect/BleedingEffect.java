@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class BleedingEffect extends Effect {
-	public Random random = new Random();
+	public static final Random random = new Random();
 
 	public BleedingEffect(String nameKey, String id, List<Modifier<?>> modifiers, EffectTimeType effectTimeType, int maxStack) {
 		super(nameKey, id, modifiers, effectTimeType, maxStack);
@@ -19,10 +19,10 @@ public class BleedingEffect extends Effect {
 
 	@Override
 	public <T> void tick(EffectStack effectStack, EffectContainer<T> effectContainer) {
-		if(effectContainer.getParent() instanceof Mob && this.random.nextFloat() > 0.6){
+		if(effectContainer.getParent() instanceof Mob && random.nextFloat() > 0.6){
 			Mob mob = (Mob)effectContainer.getParent();
-			double angle = MathHelper.toRadians(this.random.nextInt(360));
-			double radius = mob.bbWidth / 2.0f * this.random.nextFloat();
+			double angle = MathHelper.toRadians(random.nextInt(360));
+			double radius = mob.bbWidth / 2.0f * random.nextFloat();
 			double lx = mob.x + radius * Math.cos(angle);
 			double lz = mob.z + radius * Math.sin(angle);
 			double ly = mob.y + mob.bbHeight / 1.5f;
