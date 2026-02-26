@@ -1,4 +1,4 @@
-package redart15.aether_battle.mixin;
+package redart15.aether_battle.mixin.item;
 
 import net.minecraft.core.entity.Mob;
 import net.minecraft.core.item.ItemStack;
