@@ -5,13 +5,16 @@ import net.minecraft.core.entity.Mob;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.world.World;
 import redart15.aether_battle.item.AetherBattleItems;
+import redart15.aether_battle.item.ItemCrimsonGem;
 import sunsetsatellite.catalyst.effects.api.effect.*;
 import sunsetsatellite.catalyst.effects.api.modifier.Modifier;
 import teamport.aether.effect.AetherEffects;
 
 import java.util.List;
+import java.util.Random;
 
-public class BloodLettingEffect extends BleedingEffect {
+public class BloodLettingEffect extends BleedingEffect implements HarmFullEffect{
+	public static final Random random = new Random();
 
 	public BloodLettingEffect(String nameKey, String id, List<Modifier<?>> modifiers, EffectTimeType effectTimeType, int maxStack) {
 		super(nameKey, id, modifiers, effectTimeType, maxStack);
@@ -20,14 +23,12 @@ public class BloodLettingEffect extends BleedingEffect {
 	@Override
 	public <T> void stackAdded(EffectStack effectStack, EffectContainer<T> effectContainer) {
 		Entity entity = (Entity) effectContainer.getParent();
-		if(entity instanceof Mob){
-			entity.hurt((Entity)null, 1, DamageType.GENERIC);
-		}
-		World world = entity.world;
-		if(world == null){
+		if (!(entity instanceof Mob) || entity.world == null) {
 			return;
 		}
-		world.dropItem((int)Math.round(entity.x), (int)Math.round(entity.y), (int)Math.round(entity.z), AetherBattleItems.CONGEALED_BLOOD.getDefaultStack());
+		entity.hurt((Entity)null, 1, DamageType.GENERIC);
+		entity.world.playSoundAtEntity(null, entity, "aether_battle:bloodstone.cutting", 0.5F + random.nextFloat() * 0.4f, 0.5F + random.nextFloat() * 0.7f);
+		entity.world.dropItem((int)Math.round(entity.x), (int)Math.round(entity.y), (int)Math.round(entity.z), AetherBattleItems.CONGEALED_BLOOD.getDefaultStack());
 	}
 
 	@Override
