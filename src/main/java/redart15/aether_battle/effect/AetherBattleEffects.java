@@ -64,19 +64,19 @@ public class AetherBattleEffects {
 		dispatcher.addDispatch(bleeding, new EffectRenderer<>(bleeding).setIcon("bleeding.png"));
 	}
 
-	public static void quickStartEffect(IHasEffects<?> victom, Effect effect, int stackSize) {
+	public static void quickStartEffect(Entity attacker, IHasEffects<?> victom, Effect effect, int stackSize) {
 		EffectStack stack = new EffectStack(victom, effect, stackSize);
 		stack.start(victom.getContainer());
-		AetherBattleEffects.add(victom.getContainer(), stack);
+		AetherBattleEffects.add(attacker, victom.getContainer(), stack);
 	}
 
-	public static void add(EffectContainer<?> container, EffectStack currentEffect) {
+	public static void add(Entity attacker, EffectContainer<?> container, EffectStack currentEffect) {
 		if (!currentEffect.getEffect().canApplyTo((Entity) container.getParent())) return;
 		List<EffectStack> effects = container.getEffects();
 		for (EffectStack effectStack : effects) {
 			if (effectStack.getEffect() == currentEffect.getEffect()) {
 				int amount = Math.min(currentEffect.getAmount(), effectStack.getEffect().getMaxStack() - effectStack.getAmount());
-				add(effectStack, amount, container);
+				add(attacker, effectStack, amount, container);
 				syncEffectContainer(container);
 				return;
 			}
@@ -85,9 +85,12 @@ public class AetherBattleEffects {
 	}
 
 
-	public static void add(EffectStack stack, int amount, EffectContainer<?> effectContainer) {
+	public static void add(Entity attacker, EffectStack stack, int amount, EffectContainer<?> effectContainer) {
 		if (amount > 0) {
 			stack.add(amount, effectContainer);
+			if(stack.getEffect() instanceof HarmFullEffect){
+				((HarmFullEffect)stack.getEffect()).doHarm(effectContainer, stack.getEffect(), attacker);
+			}
 		}
 	}
 
