@@ -6,11 +6,13 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ItemToolSwordVampireMixin",
+    "item.ItemToolSwordVampireMixin",
     "accessor.EntityItemMixinBloodInsert"
   ],
   "client": [
-    "MobRendererPlayerMixinCircle",
+    "item.bloodstone.MobRendererPlayerMixinCircle",
+    "item.bloodstone.ScreeInventoryCreativeMixinRenderItem",
+    "item.bloodstone.ScreenInventoryRenderingMixin",
     "accessor.MinecraftAccessor"
   ]
 }
