@@ -1,7 +1,8 @@
-package redart15.aether_battle.mixin;
+package redart15.aether_battle.mixin.item.bloodstone;
 
-import net.minecraft.client.render.Lighting;
 import net.minecraft.client.render.entity.MobRendererPlayer;
+import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
@@ -10,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import redart15.aether_battle.item.AetherBattleRenderSpecials;
+import redart15.aether_battle.model.AetherBattleRenderSpecials;
 
 @Mixin(value = MobRendererPlayer.class, remap = false)
 public class MobRendererPlayerMixinCircle {
@@ -20,8 +21,11 @@ public class MobRendererPlayerMixinCircle {
 		for(int renderPass = 0; renderPass < player.inventory.armorInventory.length; renderPass++){
 			GL11.glPushMatrix();
 			ItemStack itemstack = player.inventory.armorItemInSlot(renderPass);
-			if (itemstack != null && itemstack.getItem() instanceof AetherBattleRenderSpecials) {
-				((AetherBattleRenderSpecials) itemstack.getItem()).renderSpecials(Tessellator.instance, player, itemstack, renderPass, partialTick);
+			if (itemstack != null) {
+				ItemModel model = ItemModelDispatcher.getInstance().getDispatch(itemstack.getItem());
+				if (model instanceof AetherBattleRenderSpecials) {
+					((AetherBattleRenderSpecials) model).renderItemSpecialOnPlayer(Tessellator.instance, player, itemstack, renderPass, partialTick);
+				}
 			}
 			GL11.glPopMatrix();
 		}

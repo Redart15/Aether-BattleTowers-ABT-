@@ -54,10 +54,10 @@ public class AetherBattleModels implements ModelEntrypoint {
 			.setFullBright());
 
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.CONGEALED_BLOOD, null)
-			.setIcon(MOD_ID + ":item/congealed_blood"));
+			.setIcon(MOD_ID + ":item/bloodstone/congealed_blood"));
 
-		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.BLOODSTONE, null)
-			.setIcon(MOD_ID + ":item/blood_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelBloodstone(AetherBattleItems.BLOODSTONE, null)
+			.setIcon(MOD_ID + ":item/bloodstone/bloodstone"));
 	}
 
 	@Override
