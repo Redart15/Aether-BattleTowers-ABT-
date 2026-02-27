@@ -5,6 +5,8 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tag.ItemTags;
 import redart15.aether_battle.config.AetherBattleConfig;
+import redart15.aether_battle.item.bloodstone.ItemCongealedBlood;
+import redart15.aether_battle.item.bloodstone.ItemCrimsonGem;
 import teamport.aether.item.AetherItemTags;
 import turniplabs.halplibe.helper.ItemBuilder;
 

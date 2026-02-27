@@ -1,4 +1,4 @@
-package redart15.aether_battle.item;
+package redart15.aether_battle.item.bloodstone;
 
 import com.mojang.nbt.tags.CompoundTag;
 import net.minecraft.core.Global;
