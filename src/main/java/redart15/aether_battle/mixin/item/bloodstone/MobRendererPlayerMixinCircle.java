@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import redart15.aether_battle.model.AetherBattleRenderSpecials;
+import redart15.aether_battle.model.item.ItemRenderSpecial;
 
 @Mixin(value = MobRendererPlayer.class, remap = false)
 public class MobRendererPlayerMixinCircle {
@@ -23,8 +23,8 @@ public class MobRendererPlayerMixinCircle {
 			ItemStack itemstack = player.inventory.armorItemInSlot(renderPass);
 			if (itemstack != null) {
 				ItemModel model = ItemModelDispatcher.getInstance().getDispatch(itemstack.getItem());
-				if (model instanceof AetherBattleRenderSpecials) {
-					((AetherBattleRenderSpecials) model).renderItemSpecialOnPlayer(Tessellator.instance, player, itemstack, renderPass, partialTick);
+				if (model instanceof ItemRenderSpecial) {
+					((ItemRenderSpecial) model).renderItemSpecialOnPlayer(Tessellator.instance, player, itemstack, renderPass, partialTick);
 				}
 			}
 			GL11.glPopMatrix();
