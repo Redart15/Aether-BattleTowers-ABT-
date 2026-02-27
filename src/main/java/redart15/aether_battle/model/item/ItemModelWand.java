@@ -1,4 +1,4 @@
-package redart15.aether_battle.model;
+package redart15.aether_battle.model.item;
 
 import net.minecraft.client.render.Font;
 import net.minecraft.client.render.TextureManager;

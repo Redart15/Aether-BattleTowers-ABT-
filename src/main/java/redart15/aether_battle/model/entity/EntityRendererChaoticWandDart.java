@@ -1,4 +1,4 @@
-package redart15.aether_battle.model;
+package redart15.aether_battle.model.entity;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -1,4 +1,4 @@
-package redart15.aether_battle.model;
+package redart15.aether_battle.model.item;
 
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.client.render.tessellator.Tessellator;
@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 
-public class ItemModelBloodstone extends ItemModelStandard implements AetherBattleRenderSpecials {
+public class ItemModelBloodstone extends ItemModelStandard implements ItemRenderSpecial {
 	public static final float HEIGHT = 0.001f;
 	public static final float WINDOW = 60.0F;
 	private boolean inventoryRender = false;
