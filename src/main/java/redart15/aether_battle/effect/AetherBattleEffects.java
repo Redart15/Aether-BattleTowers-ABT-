@@ -1,7 +1,7 @@
 package redart15.aether_battle.effect;
 
 import net.minecraft.core.entity.Entity;
-import redart15.aether_battle.item.ItemCrimsonGem;
+import redart15.aether_battle.item.bloodstone.ItemCrimsonGem;
 import sunsetsatellite.catalyst.effects.api.effect.*;
 import sunsetsatellite.catalyst.effects.api.effect.render.EffectRenderer;
 import sunsetsatellite.catalyst.effects.api.effect.render.EffectRendererDispatcher;

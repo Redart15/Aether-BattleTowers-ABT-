@@ -7,7 +7,7 @@
   },
   "mixins": [
     "item.ItemToolSwordVampireMixin",
-    "accessor.EntityItemMixinBloodInsert"
+    "item.bloodstone.EntityItemMixinBloodInsert"
   ],
   "client": [
     "item.bloodstone.MobRendererPlayerMixinCircle",

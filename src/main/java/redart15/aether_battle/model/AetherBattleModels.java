@@ -1,6 +1,5 @@
 package redart15.aether_battle.model;
 
-import jamdoggie.betterbattletowers.block.BattleTowerBlocks;
 import jamdoggie.betterbattletowers.model.BlockModelCrumblingStone;
 import net.minecraft.client.render.EntityRenderDispatcher;
 import net.minecraft.client.render.TileEntityRenderDispatcher;
@@ -13,6 +12,11 @@ import net.minecraft.client.render.item.model.ItemModelStandard;
 import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import redart15.aether_battle.item.AetherBattleItems;
+import redart15.aether_battle.model.block.BlockModelCrumblingOverbright;
+import redart15.aether_battle.model.block.BlockModelOverlay;
+import redart15.aether_battle.model.entity.EntityRendererChaoticWandDart;
+import redart15.aether_battle.model.item.ItemModelBloodstone;
+import redart15.aether_battle.model.item.ItemModelWand;
 import teamport.aether.AetherMod;
 import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
@@ -43,6 +47,11 @@ public class AetherBattleModels implements ModelEntrypoint {
 		blockModelDispatcher.addDispatch((new BlockModelCrumblingOverbright<>(AetherBattleBlocks.CARVED_HELLFIRE_LIGHT_CRUMBLING, MOD_ID + ":block/crumble_blocks/hellfire/hellfire_"))
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire_overlay"));
 
+		String[] bloodsplats = new String[5];
+		for (int i = 0; i < bloodsplats.length; i++) {
+			bloodsplats[i] = MOD_ID + ":block/bloodsplat/bloodsplat_" + i;
+		}
+		blockModelDispatcher.addDispatch((new BlockModelOverlay<>(AetherBattleBlocks.OVERLAY_BLOOD, bloodsplats)));
 	}
 
 		@Override
