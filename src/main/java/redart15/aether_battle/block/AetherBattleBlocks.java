@@ -8,6 +8,7 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSounds;
 import redart15.aether_battle.config.AetherBattleConfig;
+import redart15.aether_battle.item.AetherBattleItems;
 import teamport.aether.block.AetherBlockTags;
 import teamport.aether.block.AetherBlocks;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -32,12 +33,30 @@ public class AetherBattleBlocks {
 	public static Block<BlockLogicSlabCrumbling> CARVED_HELLFIRE_SLAB_CRUMBLING;
 	public static Block<BlockLogicStairsCrumbling> CARVED_HELLFIRE_STAIR_CRUMBLING;
 
+	public static Block<?> OVERLAY_BLOOD;
+
 	private static boolean init = false;
 	private AetherBattleBlocks(){}
 	public static void init(){
 		if(init) return;
 		init = true;
+		AetherBattleBlocks.dungeonBlocks();
+	}
+
+	private static void dungeonBlocks() {
 		AetherBattleBlocks.createTrapBlocks();
+		AetherBattleBlocks.createDungeonDecorations();
+
+	}
+
+	private static void createDungeonDecorations() {
+		OVERLAY_BLOOD = (new BlockBuilder(MOD_ID))
+			.setBlockSound(BlockSounds.STONE)
+			.setHardness(0.0F)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.build("overlay.blood", AetherBattleConfig.nextBlockID(), (b) -> new BlockLogicOverlay(b, Material.decoration, AetherBattleItems.CONGEALED_BLOOD))
+			.setStatParent(() -> AetherBattleItems.CONGEALED_BLOOD);
 	}
 
 	private static void createTrapBlocks() {

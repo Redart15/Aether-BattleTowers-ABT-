@@ -15,7 +15,7 @@ import net.minecraft.core.player.inventory.container.ContainerInventory;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
-import redart15.aether_battle.TriggerOnPickup;
+import redart15.aether_battle.entity.TriggerOnPickup;
 import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.item.AetherBattleItems;
 import redart15.aether_battle.model.block.BlockModelOverlay;
