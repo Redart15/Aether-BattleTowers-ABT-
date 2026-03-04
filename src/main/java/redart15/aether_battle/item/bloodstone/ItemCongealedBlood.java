@@ -46,14 +46,14 @@ public class ItemCongealedBlood extends Item implements TriggerOnPickup {
 		}
 
 		if (id == OVERLAY_BLOOD.id()) {
-			int newMeta = Metadata.getBitBlock(meta, 4, 7) + 1;
+			int newMeta = Metadata.getBitBlock(meta, 3, 7) + 1;
 			if (!world.isBlockOpaqueCube(ix - side.getOffsetX(), iy - side.getOffsetY(), iz - side.getOffsetZ())) {
 				return false;
 			}
 			if (newMeta >= model.getTextureSize()) {
 				newMeta = 0;
 			}
-			world.setBlockAndMetadataWithNotify(ix, iy, iz, OVERLAY_BLOOD.id(), Metadata.setBitBlock(meta, 4, 7, newMeta));
+			world.setBlockAndMetadataWithNotify(ix, iy, iz, OVERLAY_BLOOD.id(), Metadata.setBitBlock(meta, 3, 7, newMeta));
 			world.playBlockSoundEffect(player, ix + 0.5F, iy + 0.5F, iz + 0.5F, OVERLAY_BLOOD, EnumBlockSoundEffectType.PLACE);
 			return true;
 		}
@@ -67,7 +67,7 @@ public class ItemCongealedBlood extends Item implements TriggerOnPickup {
 		}
 
 		if (id == OVERLAY_BLOOD.id()) {
-			int newMeta = Metadata.getBitBlock(meta, 4, 7) + 1;
+			int newMeta = Metadata.getBitBlock(meta, 3, 7) + 1;
 			AABB bbBox = AABB.getTemporaryBB(blockX, blockY, blockZ, blockX + 1.0F, blockY + (2 * (newMeta + 1)) / 16.0F, blockZ + 1.0F);
 			if (!world.checkIfAABBIsClear(bbBox) || !world.isBlockOpaqueCube(ix, iy, iz)) {
 				return false;
@@ -75,7 +75,7 @@ public class ItemCongealedBlood extends Item implements TriggerOnPickup {
 			if (newMeta >= model.getTextureSize()) {
 				newMeta = 0;
 			}
-			world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, OVERLAY_BLOOD.id(), Metadata.setBitBlock(meta, 4, 7, newMeta));
+			world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, OVERLAY_BLOOD.id(), Metadata.setBitBlock(meta, 3, 7, newMeta));
 			world.playBlockSoundEffect(player, blockX + 0.5F, blockY + 0.5F, blockZ + 0.5F, OVERLAY_BLOOD, EnumBlockSoundEffectType.PLACE);
 			return true;
 

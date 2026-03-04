@@ -47,7 +47,7 @@ public class AetherBattleModels implements ModelEntrypoint {
 		blockModelDispatcher.addDispatch((new BlockModelCrumblingOverbright<>(AetherBattleBlocks.CARVED_HELLFIRE_LIGHT_CRUMBLING, MOD_ID + ":block/crumble_blocks/hellfire/hellfire_"))
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire_overlay"));
 
-		String[] bloodsplats = new String[5];
+		String[] bloodsplats = new String[20];
 		for (int i = 0; i < bloodsplats.length; i++) {
 			bloodsplats[i] = MOD_ID + ":block/bloodsplat/bloodsplat_" + i;
 		}

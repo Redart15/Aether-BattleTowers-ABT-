@@ -2,7 +2,6 @@ package redart15.aether_battle.model.block;
 
 import jamdoggie.betterbattletowers.util.metadata.Metadata;
 import net.minecraft.client.render.LightmapHelper;
-import net.minecraft.client.render.block.model.BlockModelHorizontalRotation;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
@@ -31,20 +30,20 @@ public class BlockModelOverlay<T extends BlockLogic> extends BlockModelStandard<
 
 	@Override
 	public boolean render(Tessellator tessellator, int x, int y, int z) {
-		Side side = Side.sides[Metadata.getBitBlock(renderBlocks.blockAccess.getBlockMetadata(x, y, z), 0, 2)];
+		int meta = renderBlocks.blockAccess.getBlockMetadata(x, y, z);
+		Side side = Side.sides[MathHelper.clamp(Metadata.getBitBlock(meta, 0, 2), 0, 5)];
 		float brightness = 1.0F;
 		if (LightmapHelper.isLightmapEnabled()) {
 			tessellator.setLightmapCoord(LightmapHelper.max(
 					this.block.getLightmapCoord(renderBlocks.blockAccess, x, y, z),
-					this.block.getLightmapCoord(renderBlocks.blockAccess, x, y - 1, z)
+					this.block.getLightmapCoord(renderBlocks.blockAccess, x - side.getOffsetX(), y - side.getOffsetY(), z - side.getOffsetZ())
 				)
 			);
 		} else {
 			brightness = Math.max(this.getBlockBrightness(renderBlocks.blockAccess, x, y, z), this.getBlockBrightness(renderBlocks.blockAccess, x - side.getOffsetX(), y - side.getOffsetY(), z - side.getOffsetZ()));
 		}
-		int meta = renderBlocks.blockAccess.getBlockMetadata(x, y, z);
 		tessellator.setColorOpaque_F(brightness, brightness, brightness);
-		switch (Side.sides[Metadata.getBitBlock(meta, 0, 2)]) {
+		switch (side) {
 			case TOP:
 				this.renderTopFace(tessellator, this.block.getBlockBoundsFromState(renderBlocks.blockAccess, x, y, z), x, y, z, this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z)));
 				break;
@@ -75,7 +74,7 @@ public class BlockModelOverlay<T extends BlockLogic> extends BlockModelStandard<
 
 	@Override
 	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
-		int size = Metadata.getBitBlock(data, 4, 7);
+		int size = Metadata.getBitBlock(data, 3, 7);
 		return this.carpet[MathHelper.clamp(size, 0, this.carpet.length - 1)];
 	}
 }

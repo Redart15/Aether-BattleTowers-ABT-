@@ -8,6 +8,7 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.IItemConvertible;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
@@ -56,8 +57,8 @@ public class BlockLogicOverlay extends BlockLogic {
 		}
 	}
 
-	private Side sideFromMeta(int meta) {
-		return Side.sides[Metadata.getBitBlock(meta, 0, 2)];
+	private static Side sideFromMeta(int meta) {
+		return Side.sides[MathHelper.clamp(Metadata.getBitBlock(meta, 0, 2), 0, 5)];
 	}
 
 	@Override
@@ -80,7 +81,8 @@ public class BlockLogicOverlay extends BlockLogic {
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, int blockId) {
-		if (!this.canBlockStay(world, x, y, z)) {
+		Side side = Side.sides[Metadata.getBitBlock(world.getBlockMetadata(x,y,z), 0, 2)];
+		if (!this.canPlaceBlockOnSide(world, x, y, z, side)) {
 			this.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, world.getBlockMetadata(x, y, z), null, null);
 			world.setBlockWithNotify(x, y, z, 0);
 		}
