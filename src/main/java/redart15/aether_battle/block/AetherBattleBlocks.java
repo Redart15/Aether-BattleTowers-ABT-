@@ -33,7 +33,6 @@ public class AetherBattleBlocks {
 	public static Block<BlockLogicSlabCrumbling> CARVED_HELLFIRE_SLAB_CRUMBLING;
 	public static Block<BlockLogicStairsCrumbling> CARVED_HELLFIRE_STAIR_CRUMBLING;
 
-	public static Block<?> OVERLAY_BLOOD;
 
 	private static boolean init = false;
 	private AetherBattleBlocks(){}
@@ -50,13 +49,6 @@ public class AetherBattleBlocks {
 	}
 
 	private static void createDungeonDecorations() {
-		OVERLAY_BLOOD = (new BlockBuilder(MOD_ID))
-			.setBlockSound(BlockSounds.STONE)
-			.setHardness(0.0F)
-			.setVisualUpdateOnMetadata()
-			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-			.build("overlay.blood", AetherBattleConfig.nextBlockID(), (b) -> new BlockLogicOverlay(b, Material.decoration, AetherBattleItems.CONGEALED_BLOOD))
-			.setStatParent(() -> AetherBattleItems.CONGEALED_BLOOD);
 	}
 
 	private static void createTrapBlocks() {

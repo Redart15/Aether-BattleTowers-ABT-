@@ -13,9 +13,7 @@ import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import redart15.aether_battle.item.AetherBattleItems;
 import redart15.aether_battle.model.block.BlockModelCrumblingOverbright;
-import redart15.aether_battle.model.block.BlockModelOverlay;
 import redart15.aether_battle.model.entity.EntityRendererChaoticWandDart;
-import redart15.aether_battle.model.item.ItemModelBloodstone;
 import redart15.aether_battle.model.item.ItemModelWand;
 import teamport.aether.AetherMod;
 import turniplabs.halplibe.helper.ModelHelper;
@@ -46,27 +44,15 @@ public class AetherBattleModels implements ModelEntrypoint {
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/angelic").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/angelic_overlay"));
 		blockModelDispatcher.addDispatch((new BlockModelCrumblingOverbright<>(AetherBattleBlocks.CARVED_HELLFIRE_LIGHT_CRUMBLING, MOD_ID + ":block/crumble_blocks/hellfire/hellfire_"))
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire_overlay"));
-
-		String[] bloodsplats = new String[20];
-		for (int i = 0; i < bloodsplats.length; i++) {
-			bloodsplats[i] = MOD_ID + ":block/bloodsplat/bloodsplat_" + i;
-		}
-		blockModelDispatcher.addDispatch((new BlockModelOverlay<>(AetherBattleBlocks.OVERLAY_BLOOD, bloodsplats)));
 	}
 
-		@Override
+	@Override
 	public void initItemModels(ItemModelDispatcher itemModelDispatcher) {
 		itemModelDispatcher.addDispatch(new ItemModelWand(AetherBattleItems.CHAOTIC_WAND, (String) null)
 			.setOverlay(MOD_ID + ":item/chaotic_wand/overlay")
 			.setIcon(MOD_ID + ":item/chaotic_wand/wand")
 			.setFull3D()
 			.setFullBright());
-
-		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.CONGEALED_BLOOD, null)
-			.setIcon(MOD_ID + ":item/bloodstone/congealed_blood"));
-
-		itemModelDispatcher.addDispatch(new ItemModelBloodstone(AetherBattleItems.BLOODSTONE, null)
-			.setIcon(MOD_ID + ":item/bloodstone/bloodstone"));
 	}
 
 	@Override

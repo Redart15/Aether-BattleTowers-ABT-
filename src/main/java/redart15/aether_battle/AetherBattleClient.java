@@ -5,7 +5,6 @@ import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.render.texture.stitcher.AtlasStitcher;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.client.sound.SoundRepository;
-import redart15.aether_battle.entity.particle.ParticleBleeding;
 import redart15.aether_battle.entity.particle.ParticleChaotic;
 import turniplabs.halplibe.helper.TextureHelper;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
@@ -22,7 +21,6 @@ public class AetherBattleClient implements ClientModInitializer, ClientStartEntr
 	public void beforeClientStart() {
 		ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
 		dispatcher.addDispatch("chaotic", (world, x, y, z, xa, ya, za, id) -> new ParticleChaotic(world, x, y, z, xa, ya, za));
-		dispatcher.addDispatch("bleeding", (world, x, y, z, xa, ya, za, id) -> new ParticleBleeding(world, x, y, z, xa, ya, za));
 		SoundRepository.registerNamespace(AetherBattleMod.MOD_ID);
 	}
 
