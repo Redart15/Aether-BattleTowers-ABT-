@@ -54,10 +54,9 @@ public class AetherBattleItems {
 
 		STONE_TALISMAN = new ItemBuilder(MOD_ID).build(new ItemStonePendant("stone.talisman", itemKey("stone_talisman"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE));
 
-		STONE_HELM = new ItemBuilder(MOD_ID).build(new ItemArmor("armor.helmet.stone", itemKey("armor_helmet_stone"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE, 3));
-		STONE_PLATEBODY = new ItemBuilder(MOD_ID).build(new ItemArmor("armor.chestplate.stone", itemKey("armor_chestplate_stone"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE, 2));
-		STONE_PLATELEGS = new ItemBuilder(MOD_ID).build(new ItemArmor("armor.leggings.stone", itemKey("armor_leggings_stone"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE, 1));
-		STONE_BOOTS = new ItemBuilder(MOD_ID).build(new ItemArmor("armor.boots.stone", itemKey("armor_boots_stone"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE, 0));
-
+		STONE_HELM = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.helmet.stone", itemKey("armor_helmet_stone"), AetherBattleConfig.nextItemID(), 3));
+		STONE_PLATEBODY = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.chestplate.stone", itemKey("armor_chestplate_stone"), AetherBattleConfig.nextItemID(), 2));
+		STONE_PLATELEGS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.leggings.stone", itemKey("armor_leggings_stone"), AetherBattleConfig.nextItemID(), 1));
+		STONE_BOOTS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.boots.stone", itemKey("armor_boots_stone"), AetherBattleConfig.nextItemID(), 0));
 	}
 }

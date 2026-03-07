@@ -25,9 +25,9 @@ public abstract class MobMixinStoneSkin {
 		}
 		int stackSize = 0;
 		List<EffectStack> listStack = container.getEffects();
-		for(EffectStack stack: listStack){
-			if(stack.getEffect().id.equals(AetherBattleEffects.stoneSkin.id)){
-				stackSize = stack.getAmount();
+		for (EffectStack effectStack : listStack) {
+			if (effectStack.getEffect() == AetherBattleEffects.stoneSkin) {
+				stackSize = effectStack.getAmount();
 			}
 		}
 		if(damage > stackSize){
