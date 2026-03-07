@@ -33,6 +33,8 @@ public class AetherBattleBlocks {
 	public static Block<BlockLogicSlabCrumbling> CARVED_HELLFIRE_SLAB_CRUMBLING;
 	public static Block<BlockLogicStairsCrumbling> CARVED_HELLFIRE_STAIR_CRUMBLING;
 
+	public static Block<?> MOSSY_CAKE;
+
 
 	private static boolean init = false;
 	private AetherBattleBlocks(){}
@@ -43,19 +45,26 @@ public class AetherBattleBlocks {
 	}
 
 	private static void dungeonBlocks() {
-		AetherBattleBlocks.createTrapBlocks();
-		AetherBattleBlocks.createDungeonDecorations();
+		AetherBattleBlocks.createCrumblingBlocks();
+		AetherBattleBlocks.createMossBerryRelatives();
 
 	}
 
-	private static void createDungeonDecorations() {
+	private static void createMossBerryRelatives() {
+		MOSSY_CAKE = new BlockBuilder(MOD_ID)
+			.setBlockSound(BlockSounds.CLOTH)
+			.setHardness(0.5F)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.build("mossy_cake", AetherBattleConfig.nextBlockID(), BlockLogicMossyCake::new)
+			.setStatParent(() -> AetherBattleItems.MOSSY_CAKE);
 	}
 
-	private static void createTrapBlocks() {
+	private static void createCrumblingBlocks() {
 		BlockBuilder crumblingBlock = (new BlockBuilder(MOD_ID))
 			.setBlockSound(BlockSounds.STONE)
 			.setHardness(1.5F)
-			.setTags(AetherBlockTags.MINEABLE_BY_AETHER_PICKAXE, BlockTags.CHAINLINK_FENCES_CONNECT, BlockTags.CAN_HANG_OFF); // , BlockTags.NOT_IN_CREATIVE_MENU
+			.setTags(AetherBlockTags.MINEABLE_BY_AETHER_PICKAXE, BlockTags.CHAINLINK_FENCES_CONNECT, BlockTags.CAN_HANG_OFF, BlockTags.NOT_IN_CREATIVE_MENU);
 		BlockBuilder crumblingHellFireBlock = crumblingBlock.setInfiniburn();
 		BlockBuilder crumblingSlab = crumblingBlock.setVisualUpdateOnMetadata();
 		BlockBuilder crumblingStairs = crumblingSlab.setUseInternalLight();
