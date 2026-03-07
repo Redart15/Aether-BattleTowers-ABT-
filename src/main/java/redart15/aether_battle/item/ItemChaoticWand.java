@@ -12,7 +12,7 @@ import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.world.LevelListener;
 import net.minecraft.core.world.World;
 import redart15.aether_battle.block.AetherBattleBlockTags;
-import redart15.aether_battle.entity.projectile.ProjectileChaotic;
+import redart15.aether_battle.entity.ProjectileChaotic;
 import teamport.aether.entity.DamageInstance;
 import teamport.aether.mixin.accessors.EntityAccessor;
 
