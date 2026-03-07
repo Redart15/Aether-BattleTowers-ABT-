@@ -1,7 +1,6 @@
 package redart15.aether_battle.entity;
 
 import net.minecraft.core.util.collection.NamespaceID;
-import redart15.aether_battle.entity.projectile.ProjectileChaotic;
 import turniplabs.halplibe.helper.EntityHelper;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
