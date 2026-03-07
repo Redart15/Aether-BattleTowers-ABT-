@@ -7,7 +7,9 @@ import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
+import redart15.aether_battle.effect.AetherBattleEffects;
 import redart15.aether_battle.item.AetherBattleItems;
+import sunsetsatellite.catalyst.effects.api.effect.EffectStack;
 import sunsetsatellite.catalyst.effects.api.effect.IHasEffects;
 
 public class BlockLogicMossyCake extends BlockLogicEdible {
@@ -23,9 +25,13 @@ public class BlockLogicMossyCake extends BlockLogicEdible {
 		return AABB.getTemporaryBB(f1, 0.0F, f, 1.0F - f, f2, 1.0F - f);
 	}
 
+	@Override
 	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xPlaced, double yPlaced) {
 		if(player instanceof IHasEffects){
-			// apply regen
+			IHasEffects<?> hasEffect = (IHasEffects<?>) player;
+			EffectStack stack = new EffectStack(hasEffect, AetherBattleEffects.regeneration);
+			hasEffect.getContainer().add(stack);
+			stack.start(hasEffect.getContainer());
 		}
 		return super.onBlockRightClicked(world, x, y, z, player, side, xPlaced, yPlaced);
 	}
