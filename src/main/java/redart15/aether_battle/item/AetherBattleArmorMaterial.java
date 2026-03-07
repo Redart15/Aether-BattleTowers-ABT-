@@ -4,7 +4,6 @@ import net.minecraft.core.item.material.ArmorMaterial;
 import net.minecraft.core.util.collection.NamespaceID;
 import net.minecraft.core.util.helper.DamageType;
 import teamport.aether.AetherMod;
-import turniplabs.halplibe.helper.ArmorHelper;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 

@@ -1,4 +1,4 @@
-package redart15.aether_battle.model.item;
+package redart15.aether_battle.model;
 
 import net.minecraft.client.render.Font;
 import net.minecraft.client.render.TextureManager;
@@ -10,7 +10,7 @@ import net.minecraft.core.entity.Entity;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import org.lwjgl.opengl.GL11;
-import redart15.aether_battle.entity.particle.ParticleChaotic;
+import redart15.aether_battle.entity.ParticleChaotic;
 
 public class ItemModelWand extends ItemModelStandard {
 	private IconCoordinate overlay;

@@ -1,7 +1,5 @@
 package redart15.aether_battle.item;
 
-
-import net.minecraft.core.block.Blocks;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemArmor;
 import net.minecraft.core.item.ItemFood;
@@ -15,6 +13,7 @@ import turniplabs.halplibe.helper.ItemBuilder;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
 
+@SuppressWarnings({"java:S3008", "java:S1444", "java:S1104", "java:S3008"})
 public class AetherBattleItems {
 
 	// WEAPONS & TOOLS
@@ -32,7 +31,6 @@ public class AetherBattleItems {
 	public static Item STONE_PLATELEGS;
 	public static Item STONE_BOOTS;
 	public static Item STONE_TALISMAN;
-
 
 	private static boolean init = false;
 	private AetherBattleItems(){}

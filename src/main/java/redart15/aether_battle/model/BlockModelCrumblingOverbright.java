@@ -1,4 +1,4 @@
-package redart15.aether_battle.model.block;
+package redart15.aether_battle.model;
 
 import jamdoggie.betterbattletowers.block.crumbling_stone.BlockLogicCrumbling;
 import jamdoggie.betterbattletowers.model.BlockModelCrumblingStone;
