@@ -8,6 +8,7 @@ import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.BlockModelSlab;
 import net.minecraft.client.render.block.model.BlockModelStairs;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
+import net.minecraft.client.render.item.model.ItemModelStandard;
 import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.entity.ProjectileChaotic;
 import redart15.aether_battle.item.AetherBattleItems;
@@ -49,6 +50,13 @@ public class AetherBattleModels implements ModelEntrypoint {
 			.setIcon(MOD_ID + ":item/chaotic_wand/wand")
 			.setFull3D()
 			.setFullBright());
+
+
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_BOOTS, (String) null).setIcon(MOD_ID + ":item/armor_boots_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_PLATEBODY, (String) null).setIcon(MOD_ID + ":item/armor_chestplate_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_HELM, (String) null).setIcon(MOD_ID + ":item/armor_helmet_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_PLATELEGS, (String) null).setIcon(MOD_ID + ":item/armor_leggings_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_TALISMAN, (String) null).setIcon(MOD_ID + ":item/armor_talisman_stone"));
 	}
 
 	@Override
