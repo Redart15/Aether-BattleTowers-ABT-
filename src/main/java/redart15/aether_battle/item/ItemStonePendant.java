@@ -18,25 +18,25 @@ public class ItemStonePendant extends ItemPendant implements IAccessoryEffectsEx
 
 	@Override
 	public void addEffect(Player player, ItemStack accessory) {
-		IHasEffects<?> hasEffects = (IHasEffects<?>) player;
-		EffectContainer<?> container = hasEffects.getContainer();
-		EffectStack stack = new EffectStack(hasEffects, AetherBattleEffects.stoneSkin, 3);
-		container.add(stack);
-		stack.start(container);
+//		IHasEffects<?> hasEffects = (IHasEffects<?>) player;
+//		EffectContainer<?> container = hasEffects.getContainer();
+//		EffectStack stack = new EffectStack(hasEffects, AetherBattleEffects.stoneSkin, 3);
+//		container.add(stack);
+//		stack.start(container);
 	}
 
 	@Override
 	public void removeEffect(Player player, ItemStack accessory) {
-		IHasEffects<?> hasEffects = (IHasEffects<?>) player;
-		EffectContainer<?> container = hasEffects.getContainer();
-		if (container.hasEffect(AetherBattleEffects.stoneSkin)) {
-			List<EffectStack> listStack = container.getEffects();
-			for (EffectStack effectStack : listStack) {
-				if (effectStack.getEffect() == AetherBattleEffects.stoneSkin) {
-					effectStack.subtract(3, container);
-					return;
-				}
-			}
-		}
+//		IHasEffects<?> hasEffects = (IHasEffects<?>) player;
+//		EffectContainer<?> container = hasEffects.getContainer();
+//		if (container.hasEffect(AetherBattleEffects.stoneSkin)) {
+//			List<EffectStack> listStack = container.getEffects();
+//			for (EffectStack effectStack : listStack) {
+//				if (effectStack.getEffect() == AetherBattleEffects.stoneSkin) {
+//					effectStack.subtract(3, container);
+//					return;
+//				}
+//			}
+//		}
 	}
 }
