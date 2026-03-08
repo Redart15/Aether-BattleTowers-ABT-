@@ -6,6 +6,8 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "ContainerMixinAddEffect",
+    "MenuAbstractMixinAddEffect",
     "MobMixinStoneSkin"
   ],
   "client": [

@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import redart15.aether_battle.item.IAccessoryEffectsExtended;
-import teamport.aether.item.accessory.IAccessoryEffects;
 
 @Mixin(value = ContainerInventory.class, remap = false)
 public class ContainerMixinAddEffect{

@@ -7,11 +7,9 @@ import net.minecraft.core.entity.Mob;
 import net.minecraft.core.util.helper.DamageType;
 import org.spongepowered.asm.mixin.Mixin;
 import redart15.aether_battle.effect.AetherBattleEffects;
+import sunsetsatellite.catalyst.effects.api.attribute.Attribute;
 import sunsetsatellite.catalyst.effects.api.effect.EffectContainer;
-import sunsetsatellite.catalyst.effects.api.effect.EffectStack;
 import sunsetsatellite.catalyst.effects.api.effect.IHasEffects;
-
-import java.util.List;
 
 @Mixin(value = Mob.class, remap = false)
 public abstract class MobMixinStoneSkin {
@@ -20,14 +18,14 @@ public abstract class MobMixinStoneSkin {
 	private boolean adjustDamage(Entity attacker, int damage, DamageType type, Operation<Boolean> original){
 		Mob mob = (Mob) (Object) this;
 		EffectContainer<?> container = ((IHasEffects<?>)mob).getContainer();
-		if (!container.hasEffect(AetherBattleEffects.stoneSkin)) {
+		if (!container.hasAttribute(AetherBattleEffects.stoneSkinAttributes)) {
 			return original.call(attacker, damage, type);
 		}
 		int stackSize = 0;
-		List<EffectStack> listStack = container.getEffects();
-		for (EffectStack effectStack : listStack) {
-			if (effectStack.getEffect() == AetherBattleEffects.stoneSkin) {
-				stackSize = effectStack.getAmount();
+
+		for (Attribute attribute : container.getAttributes()) {
+			if (attribute.equals(AetherBattleEffects.stoneSkinAttributes)) {
+//				stackSize = attribute.get;
 			}
 		}
 		if(damage > stackSize){
