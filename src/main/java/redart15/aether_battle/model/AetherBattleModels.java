@@ -9,6 +9,7 @@ import net.minecraft.client.render.block.model.BlockModelSlab;
 import net.minecraft.client.render.block.model.BlockModelStairs;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
+import net.minecraft.core.util.helper.Side;
 import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.entity.ProjectileChaotic;
 import redart15.aether_battle.item.AetherBattleItems;
@@ -41,6 +42,12 @@ public class AetherBattleModels implements ModelEntrypoint {
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/angelic").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/angelic_overlay"));
 		blockModelDispatcher.addDispatch((new BlockModelCrumblingOverbright<>(AetherBattleBlocks.CARVED_HELLFIRE_LIGHT_CRUMBLING, MOD_ID + ":block/crumble_blocks/hellfire/hellfire_"))
 			.setAllTextures(BLOCK_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire").setAllTextures(OVERBRIGHT_TEXTURES, AetherMod.MOD_ID + ":block/dungeon/hellfire_overlay"));
+
+
+		blockModelDispatcher.addDispatch(new BlockModelPie<>(AetherBattleBlocks.MOSSY_CAKE, MOD_ID + ":block/mossy_cake/inner")
+			.setTex(BLOCK_TEXTURES, MOD_ID + ":block/mossy_cake/top", Side.TOP)
+			.setTex(BLOCK_TEXTURES, MOD_ID + ":block/mossy_cake/bottom", Side.BOTTOM)
+			.setTex(BLOCK_TEXTURES, MOD_ID + ":block/mossy_cake/side", Side.NORTH, Side.EAST, Side.SOUTH, Side.WEST));
 	}
 
 	@Override
@@ -56,7 +63,10 @@ public class AetherBattleModels implements ModelEntrypoint {
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_PLATEBODY, (String) null).setIcon(MOD_ID + ":item/armor_chestplate_stone"));
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_HELM, (String) null).setIcon(MOD_ID + ":item/armor_helmet_stone"));
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_PLATELEGS, (String) null).setIcon(MOD_ID + ":item/armor_leggings_stone"));
-		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_TALISMAN, (String) null).setIcon(MOD_ID + ":item/armor_talisman_stone"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_TALISMAN, (String) null).setIcon(MOD_ID + ":item/armor_pendant_stone"));
+
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSSY_CAKE, (String) null).setIcon(MOD_ID + ":item/food_mossy_cake"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSS_BERRY, (String) null).setIcon(MOD_ID + ":item/food_moss_berry1"));
 	}
 
 	@Override
