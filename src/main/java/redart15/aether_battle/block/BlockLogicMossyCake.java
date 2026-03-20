@@ -17,22 +17,31 @@ public class BlockLogicMossyCake extends BlockLogicEdible {
 		super(block, 4, 0, () -> AetherBattleItems.MOSSY_CAKE);
 	}
 
+	@Override
 	public AABB getBlockBoundsFromState(WorldSource world, int x, int y, int z) {
 		int l = world.getBlockMetadata(x, y, z);
 		float f = 0.0625F;
-		float f1 = (float)(1 + l * 2) / 16.0F;
-		float f2 = 0.5F;
-		return AABB.getTemporaryBB(f1, 0.0F, f, 1.0F - f, f2, 1.0F - f);
+		float xMin = l >= 2 ? 0.5F : f;
+		float zMin = l >= 3 ? 0.5F : f;
+		float f2 = 0.375F;
+		return AABB.getTemporaryBB(xMin, 0.0F, zMin, 1.0F - f, f2, 1.0F - f);
 	}
 
 	@Override
 	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xPlaced, double yPlaced) {
-		if(player instanceof IHasEffects){
+		if (player instanceof IHasEffects) {
 			IHasEffects<?> hasEffect = (IHasEffects<?>) player;
 			EffectStack stack = new EffectStack(hasEffect, AetherBattleEffects.regeneration);
 			hasEffect.getContainer().add(stack);
 			stack.start(hasEffect.getContainer());
 		}
-		return super.onBlockRightClicked(world, x, y, z, player, side, xPlaced, yPlaced);
+		int data = world.getBlockMetadata(x, y, z) + 1;
+		if (data >= this.maxBites) {
+			world.setBlockWithNotify(x, y, z, 0);
+		} else {
+			world.setBlockMetadataWithNotify(x, y, z, data);
+			world.markBlockDirty(x, y, z);
+		}
+		return true;
 	}
 }

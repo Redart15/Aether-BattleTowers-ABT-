@@ -4,6 +4,7 @@ import jamdoggie.betterbattletowers.block.crumbling_stone.BlockLogicCrumbling;
 import jamdoggie.betterbattletowers.block.crumbling_stone.BlockLogicSlabCrumbling;
 import jamdoggie.betterbattletowers.block.crumbling_stone.BlockLogicStairsCrumbling;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogicEdible;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSounds;
@@ -33,7 +34,7 @@ public class AetherBattleBlocks {
 	public static Block<BlockLogicSlabCrumbling> CARVED_HELLFIRE_SLAB_CRUMBLING;
 	public static Block<BlockLogicStairsCrumbling> CARVED_HELLFIRE_STAIR_CRUMBLING;
 
-	public static Block<?> MOSSY_CAKE;
+	public static Block<? extends BlockLogicEdible> MOSSY_CAKE;
 
 
 	private static boolean init = false;
