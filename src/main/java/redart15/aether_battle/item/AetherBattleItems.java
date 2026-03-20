@@ -2,7 +2,6 @@ package redart15.aether_battle.item;
 
 import net.minecraft.core.Global;
 import net.minecraft.core.item.Item;
-import net.minecraft.core.item.ItemArmor;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemPlaceable;
 import net.minecraft.core.item.material.ArmorMaterial;
@@ -54,9 +53,9 @@ public class AetherBattleItems {
 		MOSSY_CAKE = new ItemBuilder(MOD_ID).setStackSize(1).build(new ItemPlaceable("food.mossy.cake", itemKey("food_mossy_cake"), AetherBattleConfig.nextItemID(), AetherBattleBlocks.MOSSY_CAKE));
 
 		STONE_TALISMAN = new ItemBuilder(MOD_ID).build(new ItemStonePendant("stone.talisman", itemKey("stone_talisman"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE));
-		STONE_HELM = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.helmet.stone", itemKey("armor_helmet_stone"), AetherBattleConfig.nextItemID(), 3));
-		STONE_PLATEBODY = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.chestplate.stone", itemKey("armor_chestplate_stone"), AetherBattleConfig.nextItemID(), 2));
-		STONE_PLATELEGS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.leggings.stone", itemKey("armor_leggings_stone"), AetherBattleConfig.nextItemID(), 1));
-		STONE_BOOTS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.boots.stone", itemKey("armor_boots_stone"), AetherBattleConfig.nextItemID(), 0));
+		STONE_HELM = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.helmet.stone", itemKey("armor_helmet_stone"), AetherBattleConfig.nextItemID(), 3, 1));
+		STONE_PLATEBODY = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.chestplate.stone", itemKey("armor_chestplate_stone"), AetherBattleConfig.nextItemID(), 2, 3));
+		STONE_PLATELEGS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.leggings.stone", itemKey("armor_leggings_stone"), AetherBattleConfig.nextItemID(), 1, 2));
+		STONE_BOOTS = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.boots.stone", itemKey("armor_boots_stone"), AetherBattleConfig.nextItemID(), 0, 1));
 	}
 }
