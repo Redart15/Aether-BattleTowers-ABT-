@@ -8,7 +8,8 @@
   "mixins": [
     "ContainerMixinAddEffect",
     "MenuAbstractMixinAddEffect",
-    "MobMixinStoneSkin"
+    "MobMixinStoneSkin",
+    "NumberAttributesMixinFixCalc"
   ],
   "client": [
     "accessor.MinecraftAccessor"

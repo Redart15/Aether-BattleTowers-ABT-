@@ -1,10 +1,32 @@
 # Items
+# Weapons
 item.aether_battle.chaotic.wand.name=Chaotic Wand
 item.aether_battle.chaotic.wand.desc=Fire a beam of random damage type and strength. May sting a bit.
-item.aether_battle.congealed.blood.name=Congealed Blood
-item.aether_battle.congealed.blood.desc=Freshly culled blood, spicy to the taste, refreshing.
-item.aether_battle.bloodstone.name=Bloodstone
-item.aether_battle.bloodstone.desc=Periodically slashes enemies, causing blood to drop. Collect the blood to restore health.
+
+# Tools
+item.aether_battle.ultimative.fist.name=Ultimate Fist
+item.aether_battle.ultimative.fist.name=The Fist: a tool for every job.
+
+# Fodd
+item.aether_battle.moss.berry.name=Moss Berry
+item.aether_battle.moss.berry.name=Stains everything purple.
+item.aether_battle.food.mossy.cake.name=Moss Berry Cake
+item.aether_battle.food.mossy.cake.name=Each bite grants regeneration.
+item.aether_battle.stone.cookie.name=Rock Chipped Cookie
+item.aether_battle.stone.cookie.desc=More rock than cookie.
+
+# Stone armor and pendant
+item.aether_battle.armor.helmet.stone.name=Stone Helmet
+item.aether_battle.armor.helmet.stone.desc=Dumb as a rock.
+item.aether_battle.armor.chestplate.stone.name=Stone Chestplate
+item.aether_battle.armor.chestplate.stone.desc=Heart of stone.
+item.aether_battle.armor.leggings.stone.name=Stone Leggings
+item.aether_battle.armor.leggings.stone.desc=Solid as a rock.
+item.aether_battle.armor.boots.stone.name=Stone Boots
+item.aether_battle.armor.boots.stone.desc=Sinks like stone.
+item.aether_battle.stone.talisman.name=Stone Pendant
+item.aether_battle.stone.talisman.desc=Just a rock.
+
 
 # Blocks
 # Crumbling Carved Stone
@@ -64,6 +86,4 @@ tile.aether_battle.bridle.stairs.carved.hellfire.name=Bridle Hellfire Stone Stai
 tile.aether_battle.bridle.stairs.carved.hellfire.desc=Hellfire Stone block used for very careful and very dangerous vertical movement!
 
 # Subtitle
-subtitles.aether_battle.bloodstone.cutting=Bloodstone slashing enemies.
-subtitles.aether_battle.bloodstone.pickup=Pickup Congealed Blood
 subtitles.aether_battle.wand.laser.shot=Wand shot
