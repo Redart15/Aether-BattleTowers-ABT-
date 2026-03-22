@@ -11,9 +11,11 @@ item.aether_battle.ultimative.fist.name=The Fist: a tool for every job.
 item.aether_battle.moss.berry.name=Moss Berry
 item.aether_battle.moss.berry.name=Stains everything purple.
 item.aether_battle.food.mossy.cake.name=Moss Berry Cake
-item.aether_battle.food.mossy.cake.name=Each bite grants regeneration.
+item.aether_battle.food.mossy.cake.desc=Each bite grants regeneration.
 item.aether_battle.stone.cookie.name=Rock Chipped Cookie
 item.aether_battle.stone.cookie.desc=More rock than cookie.
+item.aether_battle.food.jelly.name=Mossy Jelly
+item.aether_battle.food.jelly.desc=It taste purple.
 
 # Stone armor and pendant
 item.aether_battle.armor.helmet.stone.name=Stone Helmet
@@ -26,7 +28,6 @@ item.aether_battle.armor.boots.stone.name=Stone Boots
 item.aether_battle.armor.boots.stone.desc=Sinks like stone.
 item.aether_battle.stone.talisman.name=Stone Pendant
 item.aether_battle.stone.talisman.desc=Just a rock.
-
 
 # Blocks
 # Crumbling Carved Stone
@@ -87,3 +88,6 @@ tile.aether_battle.bridle.stairs.carved.hellfire.desc=Hellfire Stone block used 
 
 # Subtitle
 subtitles.aether_battle.wand.laser.shot=Wand shot
+
+# Effects
+effect.aether_battle.regeneration.name=Regeneration

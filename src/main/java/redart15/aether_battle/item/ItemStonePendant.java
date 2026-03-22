@@ -23,7 +23,7 @@ public class ItemStonePendant extends ItemPendant implements IItemWithModifiers 
 
 	@Override
 	public Map<Modifier<?>, Boolean> getModifiers(IHasEffects<?> iHasEffects, ItemStack itemStack, int slot) {
-		if (slot < 100 || slot > 103) {
+		if (slot < 106 || slot > 108) {
 			return new HashMap<>();
 		}
 		Map<Modifier<?>, Boolean> map = new HashMap<>();
