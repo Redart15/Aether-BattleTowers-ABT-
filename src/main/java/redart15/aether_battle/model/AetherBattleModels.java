@@ -65,8 +65,10 @@ public class AetherBattleModels implements ModelEntrypoint {
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_PLATELEGS, (String) null).setIcon(MOD_ID + ":item/armor_leggings_stone"));
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_TALISMAN, (String) null).setIcon(MOD_ID + ":item/armor_pendant_stone"));
 
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.STONE_COOKIE, (String) null).setIcon(MOD_ID + ":item/food_stone_cookie"));
 		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSSY_CAKE, (String) null).setIcon(MOD_ID + ":item/food_mossy_cake"));
-		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSS_BERRY, (String) null).setIcon(MOD_ID + ":item/food_moss_berry1"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSS_BERRY, (String) null).setIcon(MOD_ID + ":item/food_moss_berry"));
+		itemModelDispatcher.addDispatch(new ItemModelStandard(AetherBattleItems.MOSSY_YELLY, (String) null).setIcon(MOD_ID + ":item/food_jelly"));
 	}
 
 	@Override

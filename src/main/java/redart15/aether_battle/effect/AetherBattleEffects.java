@@ -43,10 +43,9 @@ public class AetherBattleEffects {
 			"effect." + MOD_ID + ".regeneration",
 			MOD_ID + ":regeneration",
 			new ArrayList<>(),
-			EffectTimeType.ADD, 1
+			EffectTimeType.RESET, 1
 		)
-			.setDefaultDuration(20 * Global.TICKS_PER_SECOND)
-			.setDurationIncrease(4 * Global.TICKS_PER_SECOND);
+			.setDefaultDuration(12 * Global.TICKS_PER_SECOND);
 
 		stoneSkin = new Effect(
 			"effect." + MOD_ID + ".stone_skin",

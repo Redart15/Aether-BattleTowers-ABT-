@@ -21,7 +21,7 @@ public class RegenrationEffect extends Effect {
 			return;
 		}
 		Mob mob = (Mob) entity;
-		if ((mob.tickCount % (1 * Global.TICKS_PER_SECOND) == 0) && mob.getHealth() < mob.getMaxHealth()) {
+		if ((mob.tickCount % ( Global.TICKS_PER_SECOND) == 0) && mob.getHealth() < mob.getMaxHealth()) {
 			mob.heal(1);
 		}
 	}

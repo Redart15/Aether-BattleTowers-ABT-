@@ -12,7 +12,11 @@ import redart15.aether_battle.item.AetherBattleItems;
 import sunsetsatellite.catalyst.effects.api.effect.EffectStack;
 import sunsetsatellite.catalyst.effects.api.effect.IHasEffects;
 
+import java.util.Random;
+
 public class BlockLogicMossyCake extends BlockLogicEdible {
+	private static final Random random = new Random();
+
 	public BlockLogicMossyCake(Block<?> block) {
 		super(block, 4, 0, () -> AetherBattleItems.MOSSY_CAKE);
 	}
@@ -34,6 +38,7 @@ public class BlockLogicMossyCake extends BlockLogicEdible {
 			EffectStack stack = new EffectStack(hasEffect, AetherBattleEffects.regeneration);
 			hasEffect.getContainer().add(stack);
 			stack.start(hasEffect.getContainer());
+			world.playSoundAtEntity(player, player, "random.bite", 0.5F + (random.nextFloat() - random.nextFloat()) * 0.1F, 1.1F + (random.nextFloat() - random.nextFloat()) * 0.1F);
 		}
 		int data = world.getBlockMetadata(x, y, z) + 1;
 		if (data >= this.maxBites) {

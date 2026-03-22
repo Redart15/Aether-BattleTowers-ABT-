@@ -9,6 +9,7 @@ import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tag.ItemTags;
 import redart15.aether_battle.block.AetherBattleBlocks;
 import redart15.aether_battle.config.AetherBattleConfig;
+import teamport.aether.item.ItemBucketSkyrootPoison;
 import turniplabs.halplibe.helper.ItemBuilder;
 
 import static redart15.aether_battle.AetherBattleMod.MOD_ID;
@@ -24,6 +25,7 @@ public class AetherBattleItems {
 	public static Item STONE_COOKIE;
 	public static Item MOSS_BERRY;
 	public static Item MOSSY_CAKE;
+	public static Item MOSSY_YELLY;
 
 	// ARMOR
 	public static Item STONE_HELM;
@@ -48,9 +50,10 @@ public class AetherBattleItems {
 
 		ULTIMATIVE_FIST = new ItemBuilder(MOD_ID).build(new ItemFist("ultimative.fist", itemKey("ultimative_fist"), AetherBattleConfig.nextItemID(), ArmorMaterial.DIAMOND, 4));
 
-		STONE_COOKIE = new ItemBuilder(MOD_ID).build(new ItemFood("stone.cookie", itemKey("stone_cookie"), AetherBattleConfig.nextItemID(), 2, 0, false, 8));
+		STONE_COOKIE = new ItemBuilder(MOD_ID).build(new ItemRockCookie("stone.cookie", itemKey("stone_cookie"), AetherBattleConfig.nextItemID(), 2, 0, false, 8));
 		MOSS_BERRY = new ItemBuilder(MOD_ID).build(new ItemFood("moss.berry", itemKey("moss_berry"), AetherBattleConfig.nextItemID(), 2, 20 * Global.TICKS_PER_SECOND, false, 8));
 		MOSSY_CAKE = new ItemBuilder(MOD_ID).setStackSize(1).build(new ItemPlaceable("food.mossy.cake", itemKey("food_mossy_cake"), AetherBattleConfig.nextItemID(), AetherBattleBlocks.MOSSY_CAKE));
+		MOSSY_YELLY = new ItemBuilder(MOD_ID).setStackSize(1).build(new ItemJelly("food.jelly", itemKey("food_jelly"), AetherBattleConfig.nextItemID()));
 
 		STONE_TALISMAN = new ItemBuilder(MOD_ID).build(new ItemStonePendant("stone.talisman", itemKey("stone_talisman"), AetherBattleConfig.nextItemID(), AetherBattleArmorMaterial.STONE));
 		STONE_HELM = new ItemBuilder(MOD_ID).build(new ItemStoneArmor("armor.helmet.stone", itemKey("armor_helmet_stone"), AetherBattleConfig.nextItemID(), 3, 1));
